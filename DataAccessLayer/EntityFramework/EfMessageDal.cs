@@ -72,7 +72,7 @@ namespace DataAccessLayer.EntityFramework
         public List<Message> GetTrashMessages(string receiverMail)
         {
             return _context.Messages
-                 .Where(m => m.ReceiverMail == receiverMail && m.IsRead)  // Alıcı mail adresine göre filtreleme
+                 .Where(m => m.ReceiverMail == receiverMail && m.IsRead==true)  // Alıcı mail adresine göre filtreleme
                  .OrderByDescending(m => m.CreatedAt)  // Mesajları tarihe göre sıralama
                  .ToList();  // Listeye dönüştürme
         }
