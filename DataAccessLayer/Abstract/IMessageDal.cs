@@ -18,5 +18,7 @@ namespace DataAccessLayer.Abstract
         List<Message> GetUnreadMessagesByAppUserId(int UserId);
         List<Message> GetLastMessageByAppUserId(int UserId);
 
+        Message DeleteMessage(int userid,int messageid);
+
     }
 }

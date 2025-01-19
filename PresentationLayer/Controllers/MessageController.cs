@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.ComponentModel.DataAnnotations;
 
 namespace PresentationLayer.Controllers
@@ -83,6 +84,18 @@ namespace PresentationLayer.Controllers
 
 			return View(trashMessages);  // View'e çöp kutusu mesajlarını gönder
 		}
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteMessage(int messageid)
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);  // Kullanıcıyı bul
+            var userid = user.Id; //bulunan kullanıcıyı atadık
+
+            //dısardan gönderdiğimiz messageid parametresini verdik oda burdan geliyor
+          
+            _messageService.TDeleteMessage(userid,messageid);
+            return RedirectToAction("Inbox");
+        }
 
 	}
 	}

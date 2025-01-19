@@ -18,6 +18,17 @@ namespace DataAccessLayer.EntityFramework
             _context = context;
         }
 
+        public Message DeleteMessage(int userid, int messageid)
+        {
+            //burada dısardan gönderdiğimiz kullanıcı id, ve message id yi buldrup değerini döndürdük ve isdelete durumunu true yaptık. Böylece
+            //mesaj silinenler arasına girmiş oldu sonra bunu veritabanına kaydettik.
+            var message = _context.Messages.FirstOrDefault(x => x.AppUserId == userid && x.MessageId == messageid);
+            message.IsDelete= true;
+            _context.SaveChanges();
+            return message;
+
+        }
+
         public Message GetByIdWithSender(int id)
         {
             return _context.Messages
@@ -51,10 +62,11 @@ namespace DataAccessLayer.EntityFramework
 
         public List<Message> GetMessagesInbox(int userId)
         {
+            //burda hem okunmamış hem silinmemiş mesajları getirmesini istedik.
             return _context.Messages
                 .Include(m => m.AppUser) // AppUser ile ilişki varsa yüklenir.
                 .Include(m => m.Category) // Category ile ilişki varsa yüklenir.
-                .Where(m => m.AppUserId == userId && !m.IsRead) // Belirtilen kullanıcı için okunmamış mesajlar.
+                .Where(m => m.AppUserId == userId && m.IsRead==false && m.IsDelete==false) // Belirtilen kullanıcı için okunmamış mesajlar.
                 .OrderByDescending(m => m.CreatedAt) // En son oluşturulmuş mesajlar önce gelir.
                 .ToList();
         }
@@ -69,10 +81,11 @@ namespace DataAccessLayer.EntityFramework
                 .ToList();
         }
 
+        //bura listeleyecek 
         public List<Message> GetTrashMessages(string receiverMail)
         {
             return _context.Messages
-                 .Where(m => m.ReceiverMail == receiverMail && m.IsRead==true)  // Alıcı mail adresine göre filtreleme
+                 .Where(m => m.ReceiverMail == receiverMail && m.IsDelete == true)  // Alıcı mail adresine göre filtreleme
                  .OrderByDescending(m => m.CreatedAt)  // Mesajları tarihe göre sıralama
                  .ToList();  // Listeye dönüştürme
         }
@@ -89,14 +102,14 @@ namespace DataAccessLayer.EntityFramework
         }
 
         public Message MessageDetails(int id)
-            {
-                return _context.Messages
-                    .Include(m => m.AppUser)
-                    .Include(m => m.Category)
-                    .FirstOrDefault(m => m.MessageId == id);
+        {
+            return _context.Messages
+                .Include(m => m.AppUser)
+                .Include(m => m.Category)
+                .FirstOrDefault(m => m.MessageId == id);
 
-            }
         }
     }
+}
 
 

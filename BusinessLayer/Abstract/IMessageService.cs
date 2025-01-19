@@ -19,6 +19,7 @@ namespace BusinessLayer.Abstract
         List<Message> TGetUnreadMessagesByAppUserId(int UserId);
         List<Message> TGetLastMessageByAppUserId(int UserId);
 
+        Message TDeleteMessage(int userid, int messageid);
 
     }
 }

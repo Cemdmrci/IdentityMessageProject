@@ -19,5 +19,7 @@ namespace EntityLayer.Concrete
 		public int CategoryId { get; set; }
 		public Category Category { get; set; }
         public bool IsRead { get; set; }
+
+		public bool IsDelete { get; set; }
     }
 }

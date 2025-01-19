@@ -23,6 +23,11 @@ namespace BusinessLayer.Concrete
             _messageDal.Delete(id);
         }
 
+        public Message TDeleteMessage(int userid, int messageid)
+        {
+           return _messageDal.DeleteMessage(userid,messageid);
+        }
+
         public List<Message> TGetAll()
         {
             return _messageDal.GetAll();
