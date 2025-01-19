@@ -1,0 +1,125 @@
+﻿@model Message
+@{
+    ViewData["Title"] = "Send";
+    Layout = "~/Views/Shared/_MessageLayout.cshtml";
+}
+
+<div class="pcoded-content">
+
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <i class="feather icon-mail bg-c-blue"></i>
+                    <div class="d-inline">
+                        <h5>Mesaj Gönder</h5>
+                        <span>Buradan Kayıtlı Kullanıcılara Mesajınızı Gönderebilirsiniz...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="page-header-breadcrumb">
+                    <ul class=" breadcrumb breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="index.html"><i class="feather icon-home"></i></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#!">Email</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#!">Inbox</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pcoded-inner-content">
+
+        <div class="main-body">
+            <div class="page-wrapper">
+
+                <div class="page-body">
+                    <div class="card">
+
+                        <div class="card-block email-card">
+                            <div class="row">
+                                <div class="col-lg-12 col-xl-3">
+                                    <div class="user-head row">
+                                        <div class="user-face">
+                  @*                           <img class="img-fluid" src="~/web/png/logo.png" alt="Theme-Logo" /> *@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-xl-9">
+                                    <div class="mail-box-head row justify-content-end">
+                                        <div class="col-auto">
+                                            <form class="form-material">
+                                                <div class="material-group">
+                                                    <div class="form-group form-default">
+                                                        <input type="text" name="footer-email" class="form-control" required="">
+                                                        <span class="form-bar"></span>
+                                                        <label class="float-label">Search</label>
+                                                    </div>
+                                                    <div class="material-addone">
+                                                        <i class="icofont icofont-search"></i>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-lg-12 col-xl-9">
+                                    <div class="mail-body">
+                                        <div class="mail-body">
+                                            <div class="mail-body-content">
+                                                <form method="post" asp-action="Send" asp-controller="Message" class="form-material">
+                                                    <div class="form-group form-primary">
+                                                        <label for="ReceiverId">Alıcı</label>
+                                                        <select asp-for="ReceiverMail" class="form-control" asp-items="ViewBag.Receiver">
+                                                            <option value="">-- Kullanıcı Seçin --</option>
+                                                        </select>
+                                                        <span asp-validation-for="ReceiverMail" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group form-primary">
+                                                                    <label for="Title">Başlık</label>
+                                                                    <input type="text" asp-for="Subject" class="form-control" />
+                                                                    <span asp-validation-for="  Subject" class="text-danger"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group form-primary">
+                                                                    <label for="Content">Mesaj İçeriği</label>
+                                                                    <textarea asp-for="Content" class="form-control"></textarea>
+                                                                    <span asp-validation-for="Content" class="text-danger"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <button type="submit" class="btn btn-success btn-round waves-effect waves-light">Gönder</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="styleSelector">
+            </div>
+    </div>
+</div>
+

@@ -1,0 +1,152 @@
+﻿@model Message
+@{
+	ViewData["Title"] = "MessageDetail";
+	Layout = "~/Views/Shared/_MessageLayout.cshtml";
+}
+<div class="pcoded-content">
+
+	<div class="page-header card">
+		<div class="row align-items-end">
+			<div class="col-lg-8">
+				<div class="page-header-title">
+					<i class="feather icon-mail bg-c-blue"></i>
+					<div class="d-inline">
+						<h5>Mesaj Detayları</h5>
+						<span>Mesaj Detaylarına Buradan Ulaşabilirsiniz.</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="page-header-breadcrumb">
+					<ul class=" breadcrumb breadcrumb-title">
+						<li class="breadcrumb-item">
+							<a href="index.html"><i class="feather icon-home"></i></a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="#!">Email</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="#!">Inbox</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="pcoded-inner-content">
+
+		<div class="main-body">
+			<div class="page-wrapper">
+
+				<div class="page-body">
+					<div class="card">
+
+						<div class="card-block email-card">
+							<div class="row">
+								<div class="col-lg-12 col-xl-3">
+									<div class="user-head row">
+										<div class="user-face">
+								@* 			<img class="img-fluid" src="~/web/png/logo.png" alt="Theme-Logo" /> *@
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-12 col-xl-9">
+									<div class="mail-box-head row justify-content-end">
+										<div class="col-auto">
+											<form class="form-material">
+												<div class="material-group">
+													<div class="form-group form-default">
+														<input type="text" name="footer-email" class="form-control" required="">
+														<span class="form-bar"></span>
+														<label class="float-label">Search</label>
+													</div>
+													<div class="material-addone">
+														<i class="icofont icofont-search"></i>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+
+								﻿<div class="col-lg-12 col-xl-3">
+									<div class="user-body">
+										<div class="p-20 text-center">
+										</div>
+										<ul class="page-list nav nav-tabs flex-column">
+											<li class="nav-item mail-section">
+												<a class="nav-link waves-effect  d-block" href="/Message/Inbox">
+													<i class="icofont icofont-inbox"></i> Gelen Kutusu
+													<span class="label label-primary float-right"></span>
+												</a>
+											</li>
+											<li class="nav-item mail-section">
+												<a class="nav-link waves-effect  d-block" href="/Message/Sendbox">
+													<i class="icofont icofont-star"></i> Giden Kutusu
+												</a>
+											</li>
+											<li class="nav-item mail-section">
+												<a class="nav-link waves-effect  d-block" href="/Message/Send">
+													<i class="icofont icofont-file-text"></i> Mesaj Gönder
+												</a>
+											</li>
+											<li class="nav-item mail-section">
+												<a class="nav-link waves-effect  d-block" href="/Message/Trash">
+													<i class="icofont icofont-paper-plane"></i> Çöp Kutusu
+												</a>
+											</li>
+
+										</ul>
+
+									</div>
+								</div>
+								<div class="col-lg-12 col-xl-9">
+									<div class="mail-body">
+										<div class="mail-body-content email-read">
+											<div class="card">
+												<div class="card-header">
+													<h5>Konusu: @Model.Subject</h5>
+													<h6 class="float-right">@Model.CreatedAt.ToString("dd.MM.yyyy")</h6>
+												</div>
+												<div class="card-block">
+													<div class="media m-b-20">
+														<div class="media-left photo-table">
+															<a href="#">
+																<img class="media-object img-radius" src="~/web/jpg/avatar-3.jpg" alt="E-mail User">
+															</a>
+														</div>
+														<div class="media-body photo-contant">
+															<a href="#">
+																<h6 class="user-name txt-primary">@Model.AppUser</h6>
+															</a>
+															<a class="user-mail txt-muted" href="#">
+																<h6>Kimden:<span class="__cf_email__">@Model.SenderMail</span></h6>
+															</a>
+															<div>
+																<p class="email-content">
+																	@Model.Content
+																</p>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="styleSelector">
+		</div>
+

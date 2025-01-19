@@ -1,0 +1,87 @@
+﻿@model UserEditViewModel
+@{
+    Layout = null;
+}
+
+<!-- Bootstrap CSS Link -->
+<link href="~/web/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Custom Styles -->
+<style>
+    /* Sayfanın tamamını kapsayan stil */
+    body {
+        background-image: url('https://image.cnnturk.com/i/cnnturk/75/0x555//5953fd7661361f14c814e379.jpg'); /* Verdiğiniz arka plan görseli */
+        background-size: cover; /* Görselin tam ekran olmasını sağlar */
+        background-position: center; /* Görselin ortalanmasını sağlar */
+        color:black; /* Metin rengi siyah */
+        font-family: 'Arial', sans-serif; /* Yazı tipi */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Sayfanın yüksekliğini tam ekran yapalım */
+        margin: 0; /* Tarayıcı kenar boşluklarını sıfırlayalım */
+    }
+
+    /* Formun bulunduğu konteyneri güzelleştirme */
+    .container {
+        background-color: rgba(255, 255, 255, 0.8); /* Yarı saydam beyaz arka plan */
+        padding: 40px; /* İç boşluk */
+        border-radius: 12px; /* Yuvarlak köşeler */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Gölgelendirme */
+        width: 400px; /* Form genişliği */
+        text-align: center; /* Metinlerin ortalanması */
+    }
+
+    label {
+        font-weight: bold; /* Etiket kalın yazı */
+        font-size: 18px; /* Etiket boyutu */
+        margin-bottom: 8px; /* Etiket ile input arasında boşluk */
+    }
+
+    input {
+        width: 100%; /* Input genişliği */
+        margin-bottom: 15px; /* Inputlar arası boşluk */
+        padding: 12px; /* İç boşluk */
+        border-radius: 8px; /* Yuvarlak köşeler */
+        border: 1px solid #ccc; /* Input kenarlığı */
+    }
+
+    button {
+        width: 100%; /* Buton genişliği */
+        padding: 12px;
+        border-radius: 8px;
+        background-color: #007bff; /* Mavi buton */
+        color: white; /* Beyaz metin */
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #0056b3; /* Buton üzerine gelince renk değişir */
+        }
+</style>
+
+<!-- Form İçeriği -->
+<div class="container">
+    <form method="post">
+        <h2>Hesap Bilgilerinizi Güncelle</h2> <!-- Başlık -->
+        <label>Adınız</label>
+        <input type="text" asp-for="Name" class="form-control" />
+
+        <label>Soyadınız</label>
+        <input type="text" asp-for="Surname" class="form-control" />
+
+        <label>Kullanıcı Adınız</label>
+        <input type="text" asp-for="Username" class="form-control" />
+
+        <label>Email Adresiniz</label>
+        <input type="text" asp-for="Email" class="form-control" />
+
+        <label>Şifreniz</label>
+        <input type="password" asp-for="Password" class="form-control" />
+
+        <button class="btn btn-primary">Bilgileri Güncelle</button>
+    </form>
+</div>
+

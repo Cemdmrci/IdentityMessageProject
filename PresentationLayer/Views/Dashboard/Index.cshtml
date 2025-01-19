@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_MessageLayout.cshtml";
+}
+
+<link href="~/web/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+    body {
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        font-family: Arial, sans-serif;
+    }
+
+    .dashboard-container {
+        max-width: 1200px;
+        margin: 50px auto;
+        text-align: center;
+        color: black;
+    }
+
+    .dashboard-title {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .stat-card {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .stat-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .stat-value {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #ffd700;
+    }
+
+    .icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+</style>
+
+<div class="dashboard-container">
+    <h1 class="dashboard-title">İstatistiklerim</h1>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <i class="icon bi bi-envelope-fill"></i>
+            <h4 class="stat-title">My Messages</h4>
+            <p class="stat-value">@ViewBag.MessagesCount</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="icon bi bi-envelope-open-fill"></i>
+            <h4 class="stat-title">Unread Messages</h4>
+            <p class="stat-value">@ViewBag.UnreadMessagesCount</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="icon bi bi-box-arrow-in-right"></i>
+            <h4 class="stat-title">Inbox Messages</h4>
+            <p class="stat-value">@ViewBag.InboxMessagesCount</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="icon bi bi-send-fill"></i>
+            <h4 class="stat-title">Sent Messages</h4>
+            <p class="stat-value">@ViewBag.SentMessagesCount</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.js"></script>

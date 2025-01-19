@@ -1,0 +1,224 @@
+﻿@model List<Message>
+@{
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Views/Shared/_MessageLayout.cshtml";
+}
+
+<div class="pcoded-content">
+
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <i class="feather icon-mail bg-c-blue"></i>
+                    <div class="d-inline">
+                        <h5>Gelen Mesajlar</h5>
+                        <span>Gelen Mesajlara Buradan Ulaşabilirsiniz.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="page-header-breadcrumb">
+                    <ul class=" breadcrumb breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="index.html"><i class="feather icon-home"></i></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#!">Email</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="#!">Inbox</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pcoded-inner-content">
+
+        <div class="main-body">
+            <div class="page-wrapper">
+
+                <div class="page-body">
+                    <div class="card">
+
+                        <div class="card-block email-card">
+                            <div class="row">
+                                <div class="col-lg-12 col-xl-3">
+                                    <div class="user-head row">
+                                        <div class="user-face">
+                                          @*   <img class="img-fluid" src="~/web/png/logo.png" alt="Theme-Logo" /> *@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-xl-9">
+                                    <div class="mail-box-head row justify-content-end">
+                                        <div class="col-auto">
+                                            <form class="form-material">
+                                                <div class="material-group">
+                                                    <div class="form-group form-default">
+                                                        <input type="text" name="footer-email" class="form-control" required="">
+                                                        <span class="form-bar"></span>
+                                                        <label class="float-label">Search</label>
+                                                    </div>
+                                                    <div class="material-addone">
+                                                        <i class="icofont icofont-search"></i>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                ﻿<div class="col-lg-12 col-xl-3">
+                                    <div class="user-body">
+                                        <div class="p-20 text-center">
+                                        </div>
+                                        <ul class="page-list nav nav-tabs flex-column">
+                                            <li class="nav-item mail-section">
+                                                <a class="nav-link waves-effect  d-block" href="/Message/Inbox">
+                                                    <i class="icofont icofont-inbox"></i> Gelen Kutusu
+                                                    <span class="label label-primary float-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item mail-section">
+                                                <a class="nav-link waves-effect  d-block" href="/Message/Sendbox">
+                                                    <i class="icofont icofont-star"></i> Giden Kutusu
+                                                </a>
+                                            </li>
+                                            <li class="nav-item mail-section">
+                                                <a class="nav-link waves-effect  d-block" href="/Message/Send">
+                                                    <i class="icofont icofont-file-text"></i> Mesaj Gönder
+                                                </a>
+                                            </li>
+                                            <li class="nav-item mail-section">
+                                                <a class="nav-link waves-effect  d-block" href="/Message/Trash">
+                                                    <i class="icofont icofont-paper-plane"></i> Çöp Kutusu
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-xl-9">
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="e-inbox" role="tabpanel">
+                                            <div class="mail-body">
+                                                <div class="mail-body-header">
+                                                    <button type="button" class="btn btn-primary btn-xs waves-effect waves-light">
+                                                        <i class="icofont icofont-exclamation-circle"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-success btn-xs waves-effect waves-light">
+                                                        <i class="icofont icofont-inbox"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-xs waves-effect waves-light">
+                                                        <i class="icofont icofont-ui-delete"></i>
+                                                    </button>
+                                                    <div class="btn-group dropdown-split-primary">
+                                                        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="icofont icofont-ui-folder"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item waves-effect waves-light" href="#">Action</a>
+                                                            <a class="dropdown-item waves-effect waves-light" href="#">Another action</a>
+                                                            <a class="dropdown-item waves-effect waves-light" href="#">Something else</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a class="dropdown-item waves-effect waves-light" href="#">Separated link</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-group dropdown-split-primary">
+                                                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            More
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item waves-effect waves-light" href="#">Action</a>
+                                                            <a class="dropdown-item waves-effect waves-light" href="#">Another action</a>
+                                                            <a class="dropdown-item waves-effect waves-light" href="#">Something else</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a class="dropdown-item waves-effect waves-light" href="#">Separated link</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mail-body-content">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            @foreach (var item in Model)
+                                                            {
+                                                                <tr class="unread">
+                                                                    <td>
+                                                                        <div class="check-star">
+                                                                            <div class="checkbox-fade fade-in-primary checkbox">
+                                                                                <label>
+                                                                                    <input type="checkbox" name="selectedMessages" value="@item.MessageId">
+                                                                                    <span class="cr">
+                                                                                        <i class="cr-icon icofont icofont-verification-check txt-primary"></i>
+                                                                                    </span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="/Message/MessageDetail/@item.MessageId" class="email-name waves-effect">
+                                                                            Kimden Geldi ? <span class="bold-text">@item.SenderMail</span>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="/Message/MessageDetail/@item.MessageId" class="email-name waves-effect">@item.Subject</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="/Message/MessageDetail/@item.MessageId" class="email-name waves-effect">
+                                                                            @item.Content.Substring(0, 10)...
+                                                                        </a>
+                                                                    </td>
+                                                                    @if (item.IsRead == true)
+                                                                    {
+                                                                        <td class="email-attch">
+                                                                            <a href="#"><i class="icofont icofont-tick-boxed"></i></a>
+                                                                        </td>
+                                                                        
+                                                                    }else
+                                                                    {
+                                                                        <td class="email-attch">
+                                                                            <a href="#"><i class="icofont icofont-close-circled"></i></a>
+                                                                        </td>
+                                                                    }
+
+                                                                    <td class="email-time">@item.CreatedAt.ToString("dd.MM.yyyy")</td>
+                                                                </tr>
+                                                            }
+                                                        </table>
+                                                    </div>
+
+                                                    <form action="/Message/Trash/" method="post">
+                                                        <button type="submit" class="btn btn-danger btn-xs waves-effect waves-light">
+                                                            <i class="icofont icofont-ui-delete"></i> Çöp Kutusuna Taşı
+                                                        </button>
+                                                    </form>
+                                                
+                                                           
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="styleSelector">
+        </div>
+    </div>
+</div>
+
+
